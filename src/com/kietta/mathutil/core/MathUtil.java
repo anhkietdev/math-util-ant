@@ -22,22 +22,40 @@ public class MathUtil {
     // - 0! = 1! = 1
     // - Vì giai thừa tăng cực nhanh, nên 21! đã vượt 18 số 0
     // - Tràn kiểu long, nên ta không tính 21! trở lên
+    
+    //Sửa hàm tính giai thừa
+    //5! = 4! x 5
+    //4! = 3! x 4
+    //3! = 2! x 3
+    //2! = 1! x 2
+    //1! = 1 chốt dừng
+    //n! = n x (n-1)! công thức đệ quy xuất hiện - gọi lại chính mình với một quy mô khác
+    //n! = return n x (n-1)!
+    
+    
     public static long getFactorial(int n) {
         if (n < 0 || n > 20) 
             throw new IllegalArgumentException("Invalid n, n must be between 0 to 20");
         
-        if (n == 0 || n == 1) 
-            return 1;
-        
-
-        //sống đến đây chắc chắn n = 0....20
-        //ko xài else khi hàm đã có return
-        long product = 1;//biến cộng dồn, biến tích luỹ
-        for (int i = 2; i <= n; i++) 
-            product *= i;
-       
-        return product;
+            return n * getFactorial(n-1);
     }
+    
+//    public static long getFactorial(int n) {
+//        if (n < 0 || n > 20) 
+//            throw new IllegalArgumentException("Invalid n, n must be between 0 to 20");
+//        
+//        if (n == 0 || n == 1) 
+//            return 1;
+//        
+//
+//        //sống đến đây chắc chắn n = 0....20
+//        //ko xài else khi hàm đã có return
+//        long product = 1;//biến cộng dồn, biến tích luỹ
+//        for (int i = 2; i <= n; i++) 
+//            product *= i;
+//       
+//        return product;
+//    }
 }
 
 // Học về khái niệm TDD - Test Driven Development
