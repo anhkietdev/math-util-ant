@@ -33,29 +33,23 @@ public class MathUtil {
     //n! = return n x (n-1)!
     
     
+//    public static long getFactorial(int n) {
+////        if (n < 0 || n > 20) 
+////            throw new IllegalArgumentException("Invalid n, n must be between 0 to 20");
+////        
+//            return n * getFactorial(n-1);
+//    }
+    
     public static long getFactorial(int n) {
         if (n < 0 || n > 20) 
             throw new IllegalArgumentException("Invalid n, n must be between 0 to 20");
         
-            return n * getFactorial(n-1);
+        if (n == 0 || n == 1) 
+            return 1;
+       
+       
+        return n * getFactorial(n-1);
     }
-    
-//    public static long getFactorial(int n) {
-//        if (n < 0 || n > 20) 
-//            throw new IllegalArgumentException("Invalid n, n must be between 0 to 20");
-//        
-//        if (n == 0 || n == 1) 
-//            return 1;
-//        
-//
-//        //sống đến đây chắc chắn n = 0....20
-//        //ko xài else khi hàm đã có return
-//        long product = 1;//biến cộng dồn, biến tích luỹ
-//        for (int i = 2; i <= n; i++) 
-//            product *= i;
-//       
-//        return product;
-//    }
 }
 
 // Học về khái niệm TDD - Test Driven Development
